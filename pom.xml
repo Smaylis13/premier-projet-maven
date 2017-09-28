@@ -17,6 +17,35 @@
 
 	<build>
 		<finalName>${project.artifactId}</finalName>
+		<plugins>
+			<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-jar-plugin</artifactId>
+						<configuration>
+							<archive>
+								<manifest>
+									<mainClass>dev.App</mainClass>
+								</manifest>
+							</archive>
+						</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>3.0.0</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+							<goals>
+								<goal>shade</goal>
+							</goals>
+					</execution>
+				</executions>     
+		  
+			</plugin>
+			
+			
+		</plugins>
 	</build>
   <dependencies>
     <dependency>
@@ -25,5 +54,13 @@
       <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>
+    
+    <dependency>
+    	<groupId>com.github.lalyos</groupId>
+    	<artifactId>jfiglet</artifactId>
+    	<version>0.0.3</version>
+	</dependency>
+    
   </dependencies>
+
 </project>
